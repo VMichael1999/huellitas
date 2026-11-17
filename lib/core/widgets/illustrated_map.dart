@@ -194,7 +194,7 @@ class IllustratedMap extends MapView {
     );
   }
 
-  static Path _buildWalkPath(double sx, double sy) {
+  static Path buildWalkPath(double sx, double sy) {
     // M70 520 C 70 470, 120 450, 160 440 S 200 380, 200 330 S 250 250, 300 240 S 380 200, 370 150 S 300 90, 250 100
     final p = Path();
     p.moveTo(70 * sx, 520 * sy);
@@ -209,7 +209,7 @@ class IllustratedMap extends MapView {
   static Offset _computeWalkOffset(Size size, double progress) {
     final sx = size.width / 440.0;
     final sy = size.height / 600.0;
-    final path = _buildWalkPath(sx, sy);
+    final path = buildWalkPath(sx, sy);
     final metrics = path.computeMetrics().toList();
     if (metrics.isEmpty) return Offset(70 * sx, 520 * sy);
     final m = metrics.first;
@@ -293,7 +293,7 @@ class _IllustratedMapPainter extends CustomPainter {
       );
 
       // Ruta prevista y recorrida
-      final routePath = IllustratedMap._buildWalkPath(sx, sy);
+      final routePath = IllustratedMap.buildWalkPath(sx, sy);
       canvas.drawPath(
         routePath,
         Paint()
