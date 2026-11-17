@@ -6,7 +6,7 @@ import '../../core/data/demo_data.dart';
 import '../../core/theme/hu_tokens.dart';
 import '../../core/widgets/hu_icon.dart';
 import '../../core/widgets/hu_widgets.dart';
-import '../../core/widgets/illustrated_map.dart';
+import '../../core/widgets/google_map_view.dart';
 import '../../core/widgets/toaster.dart';
 
 /// Pantalla 29: Emergencia (`s-sos`).
@@ -229,7 +229,7 @@ class _SosPageState extends State<SosPage> with SingleTickerProviderStateMixin {
                     padding: const EdgeInsets.all(14),
                     child: Column(
                       children: [
-                        IllustratedMap(
+                        GoogleMapView(
                           height: 130,
                           singlePinColor: t.bad,
                         ),

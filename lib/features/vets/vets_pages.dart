@@ -11,6 +11,7 @@ import '../../core/theme/hu_tokens.dart';
 import '../../core/utils/clock.dart';
 import '../../core/widgets/hu_icon.dart';
 import '../../core/widgets/hu_widgets.dart';
+import '../../core/widgets/google_map_view.dart';
 import '../../core/widgets/illustrated_map.dart';
 import '../../core/widgets/toaster.dart';
 import '../appointments/appointments_bloc.dart';
@@ -57,7 +58,7 @@ void openClinicDetailSheet(BuildContext context, Clinic clinic) {
             ],
           ),
           const SizedBox(height: 14),
-          IllustratedMap(
+          GoogleMapView(
             height: 140,
             singlePinColor: clinic.is24h ? t.bad : t.teal,
           ),
@@ -322,7 +323,7 @@ class VetsNearPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: HuTokens.cardShadow,
                 ),
-                child: IllustratedMap(
+                child: GoogleMapView(
                   height: 420,
                   borderRadius: 24,
                   largeMode: true,

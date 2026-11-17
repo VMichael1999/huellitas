@@ -11,7 +11,7 @@ import '../../core/theme/hu_tokens.dart';
 import '../../core/utils/clock.dart';
 import '../../core/widgets/hu_icon.dart';
 import '../../core/widgets/hu_widgets.dart';
-import '../../core/widgets/illustrated_map.dart';
+import '../../core/widgets/google_map_view.dart';
 import '../../core/widgets/toaster.dart';
 import '../booking/booking_bloc.dart';
 import '../chat/chat_bloc.dart';
@@ -997,7 +997,7 @@ class AppointmentDetailPage extends StatelessWidget {
                     ),
                   ] else ...[
                     const SizedBox(height: 16),
-                    IllustratedMap(
+                    GoogleMapView(
                       height: 170,
                       singlePinColor: clinic.is24h ? t.bad : t.teal,
                     ),

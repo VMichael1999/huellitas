@@ -9,7 +9,7 @@ import '../../core/format/hu_format.dart';
 import '../../core/theme/hu_tokens.dart';
 import '../../core/widgets/hu_icon.dart';
 import '../../core/widgets/hu_widgets.dart';
-import '../../core/widgets/illustrated_map.dart';
+import '../../core/widgets/google_map_view.dart';
 import '../../core/widgets/toaster.dart';
 import '../appointments/appointments_bloc.dart';
 import '../chat/chat_bloc.dart';
@@ -124,7 +124,7 @@ class _LiveWalkPageState extends State<LiveWalkPage> {
                 right: 0,
                 top: 0,
                 height: 600,
-                child: IllustratedMap(
+                child: GoogleMapView(
                   height: 600,
                   borderRadius: 0,
                   walkProgress: w.progress,
