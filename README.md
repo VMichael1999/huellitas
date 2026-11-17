@@ -11,6 +11,7 @@
 ![State](https://img.shields.io/badge/state-BLoC-1F9E8B)
 ![Routing](https://img.shields.io/badge/routing-go__router-F4735E)
 ![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20Android-lightgrey?logo=apple&logoColor=white)
+![Google Maps](https://img.shields.io/badge/Google%20Maps-SDK-4285F4?logo=googlemaps&logoColor=white)
 ![Locale](https://img.shields.io/badge/idioma-es__419-yellow)
 ![Tests](https://img.shields.io/badge/tests-widget%20%2B%20golden-success)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
@@ -57,6 +58,7 @@ Aplicación en **Flutter + BLoC** para dueños de mascotas, fiel al prototipo `h
 | Estado y persistencia | `flutter_bloc`, `hydrated_bloc`, `equatable` |
 | Navegación | `go_router` con `StatefulShellRoute.indexedStack` (Inicio, Citas, Mascotas, Mensajes, Perfil) |
 | Inyección | `get_it` (`Clock`, `Toaster`) |
+| Mapas | `google_maps_flutter` (`GoogleMapView`, con `IllustratedMap` como respaldo) |
 | Gráficos | Ilustraciones y avatares 3D, íconos SVG y `CustomPainter` (`IllustratedMap`, `WeightChart`, `HealthRing`, `PawBurst`) |
 | Pruebas | `flutter_test`, `bloc_test`, `mocktail`, `fake_async`, `alchemist` |
 
@@ -69,6 +71,27 @@ lib/
 └── features/    # auth, onboarding, pets, home, vets, booking, appointments,
                  # services, walk, chat, reminders, notifications, shop, sos, profile
 ```
+
+## Configuración de Google Maps
+
+1. Habilita **Maps SDK for Android** y **Maps SDK for iOS** en Google Cloud y crea una API key (restríngela por bundle ID / paquete).
+2. Crea tu `.env` a partir del ejemplo y pega tu key:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   ```env
+   GOOGLE_MAPS_API_KEY=tu_api_key
+   ```
+
+3. Sincroniza la key con iOS (Android la lee directo del `.env` desde Gradle):
+
+   ```bash
+   tool/sync_env.sh
+   ```
+
+> `.env` y `ios/Flutter/Secrets.xcconfig` están en `.gitignore`; nunca se suben al repositorio.
 
 ## Ejecución
 
