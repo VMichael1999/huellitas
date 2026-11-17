@@ -286,9 +286,21 @@ class _LoginPageState extends State<LoginPage> {
                                 border: Border.all(color: t.line, width: 1.5),
                               ),
                               alignment: Alignment.center,
-                              child: Text(
-                                provider,
-                                style: t.style(14.5, FontWeight.w600, t.ink),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(
+                                    'assets/brands/${provider.toLowerCase()}.png',
+                                    height: 20,
+                                    semanticLabel: provider,
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    provider,
+                                    style:
+                                        t.style(14.5, FontWeight.w600, t.ink),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
