@@ -10,6 +10,7 @@ import 'package:huellitas/core/data/demo_data.dart';
 import 'package:huellitas/core/domain/models.dart';
 import 'package:huellitas/core/domain/rules.dart';
 import 'package:huellitas/core/format/hu_format.dart';
+import 'package:huellitas/core/widgets/google_map_view.dart';
 import 'package:huellitas/core/theme/hu_tokens.dart';
 import 'package:huellitas/core/utils/clock.dart';
 import 'package:huellitas/core/utils/stable_hash.dart';
@@ -28,6 +29,7 @@ void main() {
   final today = fixedClock.today;
 
   setUp(() {
+    HuMapConfig.useGoogleMaps = false;
     storage = _MockStorage();
     when(() => storage.write(any(), any<dynamic>())).thenAnswer((_) async {});
     when(() => storage.read(any())).thenReturn(null);
