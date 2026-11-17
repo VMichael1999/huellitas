@@ -4,6 +4,17 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+// Lee GOOGLE_MAPS_API_KEY desde el .env de la raíz del proyecto.
+val mapsApiKey: String =
+    rootProject.file("../.env")
+        .takeIf { it.exists() }
+        ?.readLines()
+        ?.firstOrNull { it.startsWith("GOOGLE_MAPS_API_KEY=") }
+        ?.substringAfter("=")
+        ?.trim()
+        ?.trim('"', '\'')
+        .orEmpty()
+
 android {
     namespace = "com.example.huellitas"
     compileSdk = flutter.compileSdkVersion
@@ -27,6 +38,7 @@ android {
         // flag during build.
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        manifestPlaceholders["GOOGLE_MAPS_API_KEY"] = mapsApiKey
     }
 
     buildTypes {
